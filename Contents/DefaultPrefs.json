@@ -1,0 +1,25 @@
+[{
+        "id": "theater",
+        "label": "Include search results for theater.",
+        "type": "bool",
+        "default": "false"
+    },
+    {
+        "id": "english_title",
+        "label": "Include English work-title in the title if it exists.",
+        "type": "bool",
+        "default": "true"
+    },
+    {
+        "id": "transliterator",
+        "label": "Translate arabizi to arabic.",
+        "type": "bool",
+        "default": "true"
+    },
+    {
+        "id": "debug",
+        "label": "Ouput debugging info in logs.",
+        "type": "bool",
+        "default": "false"
+    }
+]

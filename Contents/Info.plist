@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>Arabic</string>
+	<key>CFBundleExecutable</key>
+	<string>Elcinema</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.plexapp.agents.elcinema</string>
+	<key>PlexAgentAttributionText</key>
+	<string> 
+	&lt;a href=&quot;http://www.elcinema.com&quot;&gt;elCinema&lt;/a&gt; is the largest online Arabic Movie database offering &lt;br/&gt;
+	various services to movie enthusiasts. Services include movie and &lt;br/&gt;
+	celebrity profiles, show-times, ratings, TV guide, trailers and &lt;br/&gt;
+	interviews. elCinema.com is visited by a million+ unique visitors per &lt;br/&gt;
+	month making it the leading movie portal in the middle east. &lt;br/&gt;
+	Source: linkedin.com
+	</string>
+	<key>PlexFrameworkVersion</key>
+	<string>2</string>
+	<key>PlexPluginClass</key>
+	<string>Agent</string>
+	<key>PlexPluginMode</key>
+    <string>AlwaysOn</string>
+</dict>
+</plist>
