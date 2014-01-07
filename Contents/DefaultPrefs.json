@@ -1,6 +1,6 @@
 [{
-        "id": "theater",
-        "label": "Include search results for theater.",
+        "id": "theatre",
+        "label": "Include search results for theatre.",
         "type": "bool",
         "default": "false"
     },

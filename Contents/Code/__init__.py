@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # elcinema.com
+# version : 0.1.1
 # Auther : Montazar@github
 
 import time, types, re
@@ -16,13 +17,13 @@ LANG_AR                 = Locale.Language.Arabic
 LANG_EN                 = Locale.Language.English
 LANG_NONE               = Locale.Language.NoLanguage
 
-MEDIA_TYPE_THEATHER     = 'مسرحية'                         # Media type information, for comparison, [Theather in arabic]
+MEDIA_TYPE_THEATRE      = 'مسرحية'                        # Media type information, for comparison, [Theatre in arabic]
 MEDIA_TYPE_MOVIE        = 'فيلم'                          # Media type information, for comparison, [Movie in arabic]
 THRESHOLD_SCORE         = 70                             # Minimum value considered credible for results.
 INITIAL_SCORE           = 80                             # Starting value for score.
 
 def Start():
-  HTTP.CacheTime = CACHE_1DAY
+  HTTP.CacheTime = CACHE_1WEEK
   HTTP.Headers['User-Agent'] = 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13'
 
 ####################################################################################################
@@ -130,7 +131,7 @@ class elcinema(Agent.Movies):
       self.log('# Search string:     %s',media.name)
     self.log('# Year:              %s',media.year)
     self.log('# Result(s):         %s',str(len(html_search)))
-    if not Prefs['theater']:
+    if not Prefs['theatre']:
       self.log('# ONLY MEDIA OF TYPE MOVIE ARE PROCESSED')
 
     # Fetch media info from result
@@ -159,7 +160,7 @@ class elcinema(Agent.Movies):
       except: pass
 
       # proccess only if its a movie
-      if (self.safe_unicode(MEDIA_TYPE_MOVIE) in self.safe_unicode(media_type)) or (Prefs['theater'] and self.safe_unicode(MEDIA_TYPE_THEATHER) in self.safe_unicode(media_type)):
+      if (self.safe_unicode(MEDIA_TYPE_MOVIE) in self.safe_unicode(media_type)) or (Prefs['theatre'] and self.safe_unicode(MEDIA_TYPE_THEATRE) in self.safe_unicode(media_type)):
         
         # set tittle
         if media_english_title:
