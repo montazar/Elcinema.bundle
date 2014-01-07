@@ -15,7 +15,6 @@ ELC_WORK_URL            = ELC_BASE_URL + '%s/work/%s'
 # Variable defines
 LANG_AR                 = Locale.Language.Arabic        
 LANG_EN                 = Locale.Language.English
-LANG_NONE               = Locale.Language.NoLanguage
 
 MEDIA_TYPE_THEATRE      = 'مسرحية'                        # Media type information, for comparison, [Theatre in arabic]
 MEDIA_TYPE_MOVIE        = 'فيلم'                          # Media type information, for comparison, [Movie in arabic]
@@ -28,8 +27,8 @@ def Start():
 
 ####################################################################################################
 class elcinema(Agent.Movies):
-  name = 'elcinema'
-  languages = [Locale.Language.NoLanguage, Locale.Language.Arabic, Locale.Language.English]
+  name = 'Elcinema'
+  languages = [Locale.Language.Arabic, Locale.Language.English]
   primary_provider = True
   accepts_from = ['com.plexapp.agents.localmedia']
 
@@ -174,20 +173,11 @@ class elcinema(Agent.Movies):
           # difference between names
         if converted_name:
           media_score = INITIAL_SCORE - abs(String.LevenshteinDistance(converted_name.lower(), media_arabic_title.lower()))
-          s1 = converted_name
-          s2 = media_arabic_title
-        elif lang == LANG_AR or lang == LANG_NONE or not media_english_title:
+        elif lang == LANG_AR or not media_english_title:
           media_score = INITIAL_SCORE - abs(String.LevenshteinDistance(media.name.lower(), media_arabic_title.lower()))
-          s1 = media.name
-          s2 = media_arabic_title
         else:
           media_score = INITIAL_SCORE - abs(String.LevenshteinDistance(media.name.lower(), media_english_title.lower()))
-          s1 = media.name
-          s2 = media_english_title
-
-        # DEBUG
-        self.log("# LevensDis '%s' / '%s' : %s", s1.lower(),s2.lower() ,media_score)
-          
+ 
           # year difference
         if media.year and media_year > 0:
           diff_year = abs(int(media.year) - int(media_year))
@@ -220,10 +210,7 @@ class elcinema(Agent.Movies):
     # TODO: FETCH MORE DATA FROM ALT. SOURCE
 
     # Fetch html source for media
-    if lang == LANG_NONE:
-      url = ELC_WORK_URL % (LANG_AR.lower(),metadata.id)
-    else:
-      url = ELC_WORK_URL % (lang.lower(),metadata.id)
+    url = ELC_WORK_URL % (lang.lower(),metadata.id)
     html_request = HTML.ElementFromURL(url)
 
     # Filter out english title

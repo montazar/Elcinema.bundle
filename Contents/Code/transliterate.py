@@ -36,7 +36,7 @@ class Transliterator:
             return False
 
     ## Filters out the translation result and returns a list
-    ## returns a list, with most accurate translation listed first
+    ## with most accurate translation listed first
     def FILTER_TRANSLITERATION(self, data):
         if not data:
             return None
