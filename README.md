@@ -1,5 +1,7 @@
+***DEPRECATED DUE TO LACK OF INTEREST***
+=
 elCinema metadata agent
-=====
+=
 This metadata agent will retrieve the metadata available on [elcinema](http://www.elcinema.com/).
 
 This module is still in beta and I would appreciate any bug reports via Github issue tracker on this page.
